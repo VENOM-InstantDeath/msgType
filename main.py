@@ -1,6 +1,7 @@
 import amino
 from modules import color
-from os import listdir, system, _exit, popen
+from os import listdir, system, _exit
+from requests import get
 from json import dumps, load
 from getpass import getpass
 from time import sleep
@@ -113,7 +114,10 @@ while True:
             break
     if cmd == "update":
         print("\nActualizando...")
-        popen("wget https://raw.githubusercontent.com/VENOM-InstantDeath/msgType/master/main.py &> /dev/null").read()
+        r = get('https://raw.githubusercontent.com/VENOM-InstantDeath/msgType/master/main.py')
+        f = open('main.py', 'w')
+        f.write(r.content)
+        f.close()
         print("Hecho! Vuelve a abrir el programa para usar la última versión")
         _exit(0)
     if cmd == "exit":
