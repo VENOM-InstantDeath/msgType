@@ -113,7 +113,7 @@ while True:
             break
     if cmd == "update":
         print("\nActualizando...")
-        popen("wget https://github.com/VENOM-InstantDeath/msgType/master/main.py &> /dev/null").read()
+        popen("wget https://raw.githubusercontent.com/VENOM-InstantDeath/msgType/master/main.py &> /dev/null").read()
         print("Hecho! Vuelve a abrir el programa para usar la última versión")
         _exit(0)
     if cmd == "exit":
