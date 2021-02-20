@@ -60,7 +60,7 @@ while True:
         print(f"{color.red}\t\t¿En qué comunidad deseas iniciar el programa?{color.nm}\n\n")
         DATA['aminoId'] = input("aminoId: ")
         try:
-            DATA['COMM'] = client.search_community(DATA['COMM']).comId[0]
+            DATA['COMM'] = client.search_community(DATA['aminoId']).comId[0]
             client.join_community(DATA['COMM'])
         except amino.exceptions.CommunityNotFound:
             print("Comunidad inexistente.")
