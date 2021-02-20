@@ -71,7 +71,7 @@ while True:
         break
 
 subclient = amino.SubClient(DATA['COMM'], profile=client.profile)  # Operation with community
-print("\nJoined Community...")
+print(f"\nJoined {DATA['COMM']}")
 
 CHAT = ["", ""]
 
@@ -94,5 +94,20 @@ while True:
                 subclient.send_message(CHAT[0], msg, 100)
             except:
                 pass
+    if cmd == "change":
+        while True:
+            DATA["COMM"] = input("\nEnter aminoId: ")
+            try:
+                DATA['COMM'] = client.search_community(DATA['COMM']).comId[0]
+                client.join_community(DATA['COMM'])
+            except amino.exceptions.CommunityNotFound:
+                print("Comunidad inexistente.")
+                sleep(1)
+                continue
+            F = open("data", "w+")
+            F.write(dumps(DATA, indent=4))
+            F.close()
+            subclient = amino.SubClient(DATA['COMM'], profile=client.profile)
+            break
     if cmd == "exit":
         _exit(0)
