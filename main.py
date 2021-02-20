@@ -1,6 +1,6 @@
 import amino
 from modules import color
-from os import listdir, system, _exit
+from os import listdir, system, _exit, popen
 from json import dumps, load
 from getpass import getpass
 from time import sleep
@@ -111,6 +111,11 @@ while True:
             F.close()
             subclient = amino.SubClient(DATA['COMM'], profile=client.profile)
             break
+    if cmd == "update":
+        print("\nActualizando...")
+        popen("wget https://github.com/VENOM-InstantDeath/msgType/master/main.py &> /dev/null").read()
+        print("Hecho! Vuelve a abrir el programa para usar la última versión")
+        _exit(0)
     if cmd == "exit":
         subclient.logout()
         client.logout()
