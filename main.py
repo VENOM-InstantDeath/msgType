@@ -119,6 +119,8 @@ while True:
         f.write(r.content)
         f.close()
         print("Hecho! Vuelve a abrir el programa para usar la última versión")
+        subclient.logout()
+        client.logout()
         _exit(0)
     if cmd == "exit":
         subclient.logout()
