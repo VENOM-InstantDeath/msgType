@@ -5,6 +5,8 @@ from json import dumps, load
 from getpass import getpass
 from time import sleep
 
+print(f"\n\t\t{color.green}By: Darth Venom{color.nm}\n")
+
 client = amino.Client()  # Global class
 
 def join(subclient: object, *params) -> tuple:
@@ -110,4 +112,6 @@ while True:
             subclient = amino.SubClient(DATA['COMM'], profile=client.profile)
             break
     if cmd == "exit":
+        subclient.logout()
+        client.logout()
         _exit(0)
