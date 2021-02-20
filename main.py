@@ -118,7 +118,7 @@ while True:
         print("\nActualizando...")
         r = get('https://raw.githubusercontent.com/VENOM-InstantDeath/msgType/master/main.py')
         f = open('main.py', 'w')
-        f.write(r.content)
+        f.write(r.text)
         f.close()
         print("Hecho! Vuelve a abrir el programa para usar la última versión")
         subclient.logout()
