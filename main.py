@@ -6,6 +6,8 @@ from json import dumps, load
 from getpass import getpass
 from time import sleep
 
+# 1.1
+
 print(f"\n\t\t{color.green}By: Darth Venom{color.nm}\n")
 
 client = amino.Client()  # Global class
