@@ -58,7 +58,7 @@ print("\nlogged in...")
 while True:
     if "COMM" not in DATA:
         print(f"{color.red}\t\t¿En qué comunidad deseas iniciar el programa?{color.nm}\n\n")
-        DATA['COMM'] = input("aminoId: ")
+        DATA['aminoId'] = input("aminoId: ")
         try:
             DATA['COMM'] = client.search_community(DATA['COMM']).comId[0]
             client.join_community(DATA['COMM'])
@@ -76,7 +76,7 @@ while True:
         break
 
 subclient = amino.SubClient(DATA['COMM'], profile=client.profile)  # Operation with community
-print(f"\nJoined {DATA['COMM']}")
+print(f"\nJoined {DATA['aminoId']}")
 
 CHAT = ["", ""]
 
